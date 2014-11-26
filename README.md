@@ -37,7 +37,8 @@ pkgs <- add_github(package,"ropensci")
 message("Now querying the GitHub API \n")
 # Run the stats on all the packages
 results <- lapply(pkgs,github_stats)  %>% Filter(Negate(is.null),.)  
-# Finally generate a static html page (this bit is unfinished in the package but works manually)
+# Finally generate a static html page 
+# (this bit is unfinished in the package but works manually)
 generate_html(results)
 ```
 
