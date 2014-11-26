@@ -7,11 +7,10 @@ Description: Creates a html dashboard for a suite of R packages hosted on
     GitHub and CRAN
 Depends:
     R (>= 3.1.2)
-License: CC0
+License: MIT + LICENSE
 LazyData: true
 Imports:
     lubridate,
-    devtools,
     httr,
     whisker,
     stringr,

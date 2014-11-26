@@ -3,7 +3,7 @@
 \alias{total_downloads}
 \title{Total downloads from the RStudio CRAN mirror between specified dates.}
 \usage{
-total_downloads(pkg, start = as.Date("2012-10-01"), today = NULL)
+total_downloads(pkg, start = NULL, today = NULL)
 }
 \arguments{
 \item{pkg}{Name of package (must not include github org/user name)}
