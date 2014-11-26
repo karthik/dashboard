@@ -1,0 +1,19 @@
+Package: dashboard
+Title: A package status dashboard
+Version: 0.1
+Authors@R: c(person("Karthik", "Ram", role = c("aut", "cre"), email =
+    "karthik.ram@gmail.com"), person("Scott", "Chamberlain", role = "aut"))
+Description: Creates a html dashboard for a suite of R packages hosted on
+    GitHub and CRAN
+Depends:
+    R (>= 3.1.2)
+License: CC0
+LazyData: true
+Imports:
+    lubridate,
+    devtools,
+    httr,
+    whisker,
+    stringr,
+    magrittr,
+    cranlogs

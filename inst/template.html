@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+   <title>rOpenSci package status page</title>
+  <script type='text/javascript' src='js/jquery-1.7.2.min.js'></script>
+  <script type='text/javascript' src='js/jquery.sparkline.js'></script>
+  <link href='http://fonts.googleapis.com/css?family=Source+Code+Pro' rel='stylesheet' type='text/css'>
+  <link rel='stylesheet' href="css/bootstrap-sortable.css">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="style/octicons.css">
+  <link rel="stylesheet" href="style/hint.min.css">
+
+  <style>
+.label {
+  font-variant: small-caps;
+}
+.ver {
+  color: #ccc;
+}
+.mouse td, th, p {
+    font-family: 'Source Code Pro';
+  }
+ .mouse th {
+  font-style: bold;
+ } 
+
+</style>
+  
+  <script type='text/javascript'>
+    $(function() {
+      $('.inlinesparkline').sparkline('html', {width: '100px', lineColor: '#DCAB49', fillColor: '#DBDED3', spotColor: ''});
+    });
+  </script>
+</head>
+
+<body>
+<table class='table table-striped table-responsive sortable mouse'>
+  <thead>
+    <tr>
+      <th>Package</th>
+      <!-- <th>Ver (GH)</th> -->
+      <th><span class="hint--bottom hint--rounded " data-hint="Last activity"><span class="octicon octicon-calendar"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Open Issues"><span class="octicon octicon-issue-opened"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Milestone progress"><span class="octicon octicon-milestone"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Contributors"><span class="octicon octicon-organization"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Stars"><span class="octicon octicon-star"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Forks"><span class="octicon octicon-repo-forked"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Pull Requests"><span class="octicon octicon-git-pull-request"></span></span></th>
+      <th><span class="hint--bottom hint--rounded " data-hint="Downloads from RStudio since 2012"><span class="octicon octicon-cloud-download"></span></span></th>
+      <th data-sortable='false'><span class="hint--bottom" data-hint="52 week activity report"><span class="octicon octicon-pulse"></span> (52wk)</span></th>
+    </tr>
+  </thead>
+  <tbody>
+    {{#out}}
+    <tr>
+      <td><a href="https://github.com/ropensci/{{package}}"><span class="hint--bottom hint--rounded hint--bounce" data-hint="{{desc}}">{{package}}</span></a>  <span class="{{cran}}">cran</span> </td>
+      <td>{{updated}}</td>
+      <td><a href="https://github.com/ropensci/{{package}}/issues/">{{open_issues}}</a></td>
+      <td><span class="hint--bottom hint--rounded " data-hint="{{total_milestones}}"><a href="https://github.com/ropensci/{{package}}/milestones/">{{milestones}}</a></span></td>
+      <td><span class="hint--left hint--rounded " data-hint="{{collaborator_names}}"><a href="https://github.com/ropensci/{{package}}/network/members/">{{collaborators}}</a></span></td>
+      <td><a href="https://github.com/ropensci/{{package}}/stargazers">{{stars}}</a></td>
+      <td><a href="https://github.com/ropensci/{{package}}/network">{{forks}}</a></td>
+      <td><a href="https://github.com/ropensci/{{package}}/pulls/">{{pull_requests}}</a></td>
+      <td>{{cran_downloads}}</td>
+      <!-- <td>{{cran}}</td> -->
+      <td><span class='inlinesparkline'>{{sparkline}}</span></td>
+      <!-- <td>{{notes}}</td> -->
+    </tr>
+    {{/out}}
+  </tbody>
+</table>
+
+
+{{#last_generated}}
+<p>Page was last generated at {{last_generated}} UTC</p>
+{{/last_generated}}
+
+</script>
+<script type='text/javascript' src='js/bootstrap-sortable.js'></script>
+<script type='text/javascript' src='js/moment.min.js'></script>
+
+</body>
+</html>
