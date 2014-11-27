@@ -60,8 +60,6 @@ github_stats <- function(repo, verbose = TRUE) {
   
   org <- stringr::str_split(repo, "/")[[1]][1]
   package <- stringr::str_split(repo, "/")[[1]][2]
-  # We grab total cran downloads from when things first started till present
-
 
   # ----------------------------------------------------------------------------
   # Create a new app, set Authorization callback URL = http://localhost:1410 Then
@@ -160,5 +158,6 @@ write(html, "index.html")
 file.copy(css, ".", recursive = TRUE, overwrite = TRUE)
 file.copy(js, ".", recursive = TRUE, overwrite = TRUE)
 file.copy(style, ".", recursive = TRUE, overwrite = TRUE)
+message(sprintf("Files written to %s \n", path))
 if(browse) browseURL("index.html") 
 }
