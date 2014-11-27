@@ -32,13 +32,15 @@ package <- c("alm","AntWeb","bmc","bold","clifro","dependencies",
             'RSelenium','sheetseeR','USAboundaries','zenodo')
 
 # Add the GitHub organization/user name before each page
-pkgs <- add_github(package,"ropensci")
+# You can also do this manually, especially if the packages belong to various accounts
+# Or you can run the function below on different vectors and join them
+pkgs <- add_github(package, "ropensci")
 
 message("Now querying the GitHub API \n")
 # Run the stats on all the packages
+# You'll need to set up a GitHub app first (one time). See ?github_auth for more details.
 results <- lapply(pkgs,github_stats)  %>% Filter(Negate(is.null),.)  
 # Finally generate a static html page 
-# (this bit is unfinished in the package but works manually)
 generate_html(results)
 ```
 
