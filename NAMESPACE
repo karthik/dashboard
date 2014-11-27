@@ -3,6 +3,7 @@
 export("%>%")
 export(add_github)
 export(generate_html)
+export(github_auth)
 export(github_stats)
 export(total_downloads)
 importFrom(cranlogs,cran_downloads)

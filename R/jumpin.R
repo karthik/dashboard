@@ -43,6 +43,21 @@ total_downloads <- function(pkg, start = NULL, today = NULL) {
 }
 
 
+#' Authenticate with GitHub and retrieve a token
+#'
+#' Create a new application in your github settings and add the app name, id, and secret to your \code{.rprofile} as options. e.g. \code{option(gh_appname = "YOUR_APP")} etc. This function will then automatically read those values. Otherwise specify them inline.
+#' @param gh_appname Github app name
+#' @param  gh_id GitHub ID
+#' @param  gh_secret GitHub secret
+#' @export
+#' @examples \dontrun{
+#' token <- github_auth()
+#'}
+github_auth <- function(gh_appname = getOption("gh_appname"), gh_id = getOption("gh_id"), gh_secret = getOption("gh_secret")) {
+myapp <- httr::oauth_app(gh_appname, gh_id, gh_secret)
+httr::oauth2.0_token(httr::oauth_endpoints("github"), myapp)
+}
+
 #' Generates a full list of GitHub stats and CRAN downloads from the RStudio mirror
 #'
 #' @param repo Name of a respository. Must include username or organization in format \code{username/repo}
@@ -64,8 +79,7 @@ github_stats <- function(repo, verbose = TRUE) {
   # ----------------------------------------------------------------------------
   # Create a new app, set Authorization callback URL = http://localhost:1410 Then
   # copy the keys into your .rprofile with the names below
-  myapp <- httr::oauth_app(getOption("gh_appname"), getOption("gh_id"), getOption("gh_secret"))
-  token <- github_token <- httr::oauth2.0_token(httr::oauth_endpoints("github"), myapp)
+  token <- github_auth()
   
   
    if(verbose)  message(sprintf("Now working on %s", repo))
