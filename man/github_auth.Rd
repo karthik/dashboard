@@ -9,12 +9,12 @@ github_auth(gh_appname = getOption("gh_appname"),
 \arguments{
 \item{gh_appname}{Github app name}
 
-\item{gh_id}{GitHub ID}
+\item{gh_id}{GitHub client id}
 
 \item{gh_secret}{GitHub secret}
 }
 \description{
-Create a new application in your github settings and add the app name, id, and secret to your \code{.rprofile} as options. e.g. \code{option(gh_appname = "YOUR_APP")} etc. This function will then automatically read those values. Otherwise specify them inline.
+Create a new application in your github settings (https://github.com/settings/applications). Set the Homepage URL and callback URL as \code{http://localhost:1410}. Then copy the app name, client id, and client secret to your \code{.rprofile} as options. e.g. \code{option(gh_appname = "YOUR_APP")} etc. This function will then automatically read those values. Otherwise specify them inline.
 }
 \examples{
 \dontrun{

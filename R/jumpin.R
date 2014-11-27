@@ -45,9 +45,9 @@ total_downloads <- function(pkg, start = NULL, today = NULL) {
 
 #' Authenticate with GitHub and retrieve a token
 #'
-#' Create a new application in your github settings and add the app name, id, and secret to your \code{.rprofile} as options. e.g. \code{option(gh_appname = "YOUR_APP")} etc. This function will then automatically read those values. Otherwise specify them inline.
+#' Create a new application in your github settings (https://github.com/settings/applications). Set the Homepage URL and callback URL as \code{http://localhost:1410}. Then copy the app name, client id, and client secret to your \code{.rprofile} as options. e.g. \code{option(gh_appname = "YOUR_APP")} etc. This function will then automatically read those values. Otherwise specify them inline.
 #' @param gh_appname Github app name
-#' @param  gh_id GitHub ID
+#' @param  gh_id GitHub client id
 #' @param  gh_secret GitHub secret
 #' @export
 #' @examples \dontrun{
