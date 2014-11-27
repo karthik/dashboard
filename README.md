@@ -7,7 +7,9 @@ This package provides an easy dashboard for any collection of R projects.
 ## Installation
 
 ```r
-devtools::install_github("ropensci/dashboard")
+library(devtools)
+install_github("metacran/cranlogs")
+install_github("ropensci/dashboard")
 ```
 
 ## Example use
