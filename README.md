@@ -2,7 +2,9 @@
 
 # Dashboard
 
-This package provides an easy dashboard for any collection of R projects.
+This package provides an easy dashboard for any collection of R projects on GitHub and CRAN.
+
+![](dashboard.png)
 
 ## Installation
 
