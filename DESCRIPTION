@@ -11,6 +11,8 @@ License: MIT + file LICENSE
 LazyData: true
 Imports:
     lubridate,
+    jsonlite,
+    scales,
     httr,
     whisker,
     stringr,

@@ -17,6 +17,7 @@ NULL
 #' add_github("alm", "ropensci")
 #'}
 add_github <- function(repo, org = "ropensci") {
+  . <- NULL
   repo %>% sort %>% sapply(., function(x) paste0(org, "/", x)) %>% unname
 }
 
