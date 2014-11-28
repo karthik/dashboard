@@ -2,7 +2,7 @@
 
 # Dashboard
 
-This package provides an easy dashboard for any collection of R projects on GitHub and CRAN.
+This package provides a simple dashboard for any collection of R projects on GitHub and CRAN. You can cron the script below, ideally no more than 4 times an hour to avoid maxing out the GitHub API limits. CRAN mirror logs update daily.
 
 ![](dashboard.png)
 
@@ -30,21 +30,26 @@ package <- c("alm","AntWeb","bmc","bold","clifro","dependencies",
             "rinat","RMendeley","rmetadata","RNeXML","rnoaa","rnpn",
             "traits","rplos","rsnps","rspringer","rvertnet","rWBclimate",
             "solr","spocc","taxize","togeojson","treeBASE","ucipp","testdat",
-            "git2r","rdat","EML",'aRxiv','datapackage','dvn','gender','ggit',
-            'gigadb','historydata','ICES','mdextract','ots','paleobioDB',
-            'pangaear','prism','rDat','rebi','rnbn','rOBIS','rorcid',
-            'RSelenium','sheetseeR','USAboundaries','zenodo')
+            "git2r","rdat","EML","aRxiv","datapackage","dvn","gender","ggit",
+            "gigadb","historydata","ICES","mdextract","ots","paleobioDB",
+            "pangaear","prism","rDat","rebi","rnbn","rOBIS","rorcid",
+            "RSelenium","sheetseeR","USAboundaries","zenodo")
 
-# Add the GitHub organization/user name before each page
-# You can also do this manually, especially if the packages belong to various accounts
-# Or you can run the function below on different vectors and join them
+# Add the GitHub organization/user before each page
+# You can also do this manually (and skip this step)
+# especially if the packages belong to various accounts
+# Or you can run the function below on different vectors and concat the results
 pkgs <- add_github(package, "ropensci")
 
 message("Now querying the GitHub API \n")
 # Run the stats on all the packages
-# You'll need to set up a GitHub app first (one time). See ?github_auth for more details.
+# You'll need to set up a GitHub app first (one time). 
+# See ?github_auth for more details.
 results <- lapply(pkgs,github_stats)  %>% Filter(Negate(is.null),.)  
 # Finally generate a static html page 
+# It writes to the tmp folder by default
+# but you can specifiy your own e.g. 
+# generate_html(results, path = getwd())
 generate_html(results)
 ```
 
