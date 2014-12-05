@@ -18,3 +18,5 @@ Imports:
     stringr,
     magrittr,
     cranlogs
+Suggests:
+    testthat
