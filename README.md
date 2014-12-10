@@ -1,5 +1,6 @@
 [![Build Status](https://travis-ci.org/ropensci/dashboard.png?branch=master)](https://travis-ci.org/ropensci/dashboard)  
-![](http://img.shields.io/badge/part%20of-ropensci-blue.svg)
+![](http://img.shields.io/badge/part%20of-ropensci-blue.svg)  
+![](https://img.shields.io/packagist/l/doctrine/orm.svg)
 
 # Dashboard
 
