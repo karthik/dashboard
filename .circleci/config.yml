@@ -1,0 +1,8 @@
+version: 2
+jobs:
+  build:
+    docker:
+      - image: rocker/ropensci
+    steps:
+      - checkout
+      - run: R -e build.R
