@@ -5,4 +5,4 @@ jobs:
       - image: rocker/ropensci
     steps:
       - checkout
-      - run: R -e build.R
+      - run: R -f build.R

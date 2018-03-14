@@ -1,0 +1,5 @@
+pipeline:
+  build:
+    image: rocker/ropensci
+    commands:
+      - R -f build.R
